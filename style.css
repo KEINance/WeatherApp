@@ -1,0 +1,63 @@
+html {
+    font-family: 'Kanit', 'Courier New', "Courier", "monospace";
+    color: black;
+    display: flex;
+    flex: wrap;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: rgb(15,22,44);
+    background: linear-gradient(117deg, rgba(15,22,44,1) 18%, rgba(105,66,147,1) 73%, rgba(3,5,19,1) 100%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.searchCity {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: left;
+}
+
+#previousSearch {
+    font-size: 14px;
+    text-align: left;
+}
+
+.searchBtn {
+    background-color: rgb(15,22,44);
+    background-color: linear-gradient(117deg, rgba(15,22,44,0.9613095238095238) 45%, rgba(105,66,147,1) 100%, rgba(46,52,95,1) 100%);
+}
+
+#lastSearched {
+    text-align: left;
+}
+
+.currentDay {
+    border: 2px black;
+    align-items: auto;
+}
+
+.city {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.fiveday {
+    border: 2px black;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.forecast {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+

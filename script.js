@@ -13,3 +13,16 @@
 // view future weather, have 5 day forcast date, weather icon, temp, wind speed, humidity
 // when new city is searched
 //presented with current and future conditions
+
+//5 day unordered list
+// <ul id="myUL">
+//   <li><a href="#">Adele</a></li>
+//   <li><a href="#">Agnes</a></li>
+
+//   <li><a href="#">Billy</a></li>
+//   <li><a href="#">Bob</a></li>
+
+//   <li><a href="#">Calvin</a></li>
+//   <li><a href="#">Christina</a></li>
+//   <li><a href="#">Cindy</a></li>
+// </ul>
