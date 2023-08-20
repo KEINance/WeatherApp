@@ -27,20 +27,20 @@ function Weather(latitude, longitude) {
     for (let i = 0; i < nextDays.list.length; i += 5) {
       const searchedCity = {
         cityName: data.city,
-        tempurature: data.tempurature,
+        tempurature: data.temperature,
         humidity: data.humidity,
         weatherIcon: data.icon,
         windSpeed: data.windSpeed,
         date: data.currentDay,
       }; //fetch current weather
-      function retrieveWeather(data) {
+      function retrieveWeather(searchedCity) {
         try {
-          fetch(apiCurrent + searchedCity)
-            .then((response) => response.json(data))
-            .then(data(), { currentDay });
+          fetch(apiCurrent + searchedCity.cityName)
+            .then((response) => response.json())
+            .then(weatherData);
         } catch (error) {
           {
-            console.log("error no forecast data", err);
+            console.log("Error no forecast data!", err);
           }
         }
       }
@@ -55,7 +55,7 @@ function Weather(latitude, longitude) {
     for (let i = 0; i < nextDays.list.length; i += 5) {
       const searchedCity = {
         cityName: data.cityName,
-        tempurature: data.tempurature,
+        tempurature: data.temperature,
         humidity: data.humidity,
         weatherIcon: data.icon,
         windSpeed: data.windSpeed,
@@ -64,9 +64,9 @@ function Weather(latitude, longitude) {
       //fetch forecast weather
 
       function showForecastWeather() {
-        fetch(apiFuture + searchedCity)
+        fetch(apiFuture + searchedCity.cityName)
           .then((responce) => responce.json(data))
-          .then(data(), { fiveDay });
+          .then(weatherData);
       }
       return showForecastWeather();
     }
