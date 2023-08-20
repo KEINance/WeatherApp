@@ -1,0 +1,23 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "```\r AS A traveler\r I WANT to see the weather outlook for multiple cities\r SO THAT I can plan a trip accordingly\r ```",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KEINance/WeatherApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KEINance/WeatherApp/issues"
+  },
+  "homepage": "https://github.com/KEINance/WeatherApp#readme",
+  "dependencies": {
+    "dayjs": "^1.11.9"
+  }
+}

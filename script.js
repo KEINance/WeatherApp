@@ -1,17 +1,19 @@
+// const dayjs = require("dayjs");
+
 const apiKey = "2d73b59ce32c945517928d1f69d80c8d";
 const geoLocat = "";
 const apiCurrent =
-  "https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}units_metric";
+  "https://api.openweathermap.org/data/2.5/weather?q={city name}&appid=${apiKey}units_metric";
 const apiFuture =
-  "https://api.openweathermap.org/data/2.5/forecast?lat={latitude}&lon={lonitude}&appid={apiKey}&units=metric";
+  "https://api.openweathermap.org/data/2.5/forecast?lat={latitude}&lon={lonitude}&appid=${apiKey}&units=metric";
 const icon = document.querySelector(".icons");
-const currentDay = dayjs().format("dddd, MMMM D, YYYY h:mm A");
-
+const currentDay = new Date();
+// console.log(currentDay)
 // get from local storage
 const forecast = JSON.parse(localStorage.getItem("city"));
 
 //save to local storage
-localStorage.setItem("citiesSearched", JSON.stringify(forcast));
+localStorage.setItem("citiesSearched", JSON.stringify(forecast));
 
 // local storage clear
 localStorage.clear();
@@ -20,7 +22,7 @@ localStorage.clear();
 // shows today forcast with date,weather icon, temp, wind speed, humidity
 function Weather(latitude, longitude) {
   // current day
-  function currentDay() {
+  function currentDay(data) {
     //current day for loop, plus next 5 days
     for (let i = 0; i < nextDays.list.length; i += 5) {
       const searchedCity = {
@@ -44,7 +46,8 @@ function Weather(latitude, longitude) {
       }
       return retrieveWeather();
     }
-  }
+  };
+  return currentDay();
 
   //five day
   function fiveDay(data) {
@@ -67,9 +70,8 @@ function Weather(latitude, longitude) {
       }
       return showForecastWeather();
     }
-  }
-//   return currentDay();
-//   return fiveDay();
+};
+return fiveDay();
 }
 
 //call current and five day functions
