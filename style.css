@@ -5,11 +5,6 @@ html {
     flex: wrap;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-}
-
 header {
     background: rgb(15,22,44);
     background: linear-gradient(117deg, rgba(15,22,44,1) 18%, rgba(105,66,147,1) 73%, rgba(3,5,19,1) 100%);
@@ -17,6 +12,7 @@ header {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
+    padding: 20px;
 }
 
 .searchCity {

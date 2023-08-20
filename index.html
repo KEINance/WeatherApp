@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Checker</title>
+    <title>Checker of Weather</title>
    <!-- css, google fonts, bootstrap link -->
     <link
     rel="stylesheet"
@@ -16,15 +16,62 @@
 </head>
 <body>
     <!-- add header and buttons for search -->
-    <header><h1>Weather Dashboard</h1></header>
-    <h2 class="searchCity">Search For City:</h2>
-    <form id="previousSearch">
+<center>
+    <header><h1>Checker of Weather</h1></header>
+    <h2 class="searchCity">Search For City: <input type='text' id='cityInput'></h2>
+    <button>Search</button>
+    <h2 class="cityName"></h2>
+</center>
+
+<div id="weatherBox">
+    <div id="iconsBox" class="row">
+        <div class="icons">
+            <p class="weather"  id="dayOne"></p>
+            <div class="image"><img src="./Icons/"  class='imgClass' id='imgOne' alt="height: 50px; width: 50px"></div>
+            <p class="temperatureMin" id="dayOneMin">Loading ...</p>
+            <p class="temperatureMax" id="dayOneMax">Loading ...</p>
+        </div>
+
+        <div class="icons">
+            <p class="weather"  id="dayTwo"></p>
+            <div class="image"><img src="./Icons/"  class='imgClass' id='imgTwo' alt="height: 50px; width: 50px"></div>
+            <p class="temperatureMin" id="dayTwoMin">Loading ...</p>
+            <p class="temperatureMax" id="dayTwoMax">Loading ...</p>
+        </div>
+
+        <div class="icons">
+            <p class="weather"  id="dayThree"></p>
+            <div class="image"><img src="./Icons/"  class='imgClass' id='imgThree' alt="height: 50px; width: 50px"></div>
+            <p class="temperatureMin" id="dayThreeMin">Loading ...</p>
+            <p class="temperatureMax" id="dayThreeMax">Loading ...</p>
+        </div>
+
+        <div class="icons">
+            <p class="weather"  id="dayFour"></p>
+            <div class="image"><img src="./Icons/"  class='imgClass' id='imgFour' alt="height: 50px; width: 50px"></div>
+            <p class="temperatureMin" id="dayFourMin">Loading ...</p>
+            <p class="temperatureMax" id="dayFourMax">Loading ...</p>
+        </div>
+
+        <div class="icons">
+            <p class="weather"  id="dayFive"></p>
+            <div class="image"><img src="./Icons/"  class='imgClass' id='imgFive' alt="height: 50px; width: 50px"></div>
+            <p class="temperatureMin" id="dayFiveMin">Loading ...</p>
+            <p class="temperatureMax" id="dayFiveMax">Loading ...</p>
+        </div>
+    </div>
+</div>
+   
+   
+   
+   
+   
+   
+    <!-- <form id="previousSearch">
         <div class="search">
         <button class="searchbtn rounded">Search</button>
              <input type="text" id="myInput" class="rounded" onkeydown="myFunction()" placeholder="City search ...">
-                    <ul id="lastSearched">
-            <!-- previously searched populates here -->
-                    </ul>
+
         </div>
     </form>
 
@@ -39,7 +86,7 @@
             <!-- 5 day populate here -->
         </div>
     </div>
-    
+     -->
 </body>
 </html>
 

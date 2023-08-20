@@ -27,11 +27,11 @@ The following image shows the web application's appearance and functionality:
 ![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](./Assets/06-server-side-apis-homework-demo.png)
 
 ## Credit
-<a href="https://www.flaticon.com/free-icons/weather" title="weather icons">Weather icons created by iconixar - Flaticon</a>
-https://www.flaticon.com/free-icons/weather?word=weather&color=color&shape=fill
-<a href="https://www.flaticon.com/free-icons/rain" title="rain icons">Rain icons created by iconixar - Flaticon</a>
-
-https://cssgradient.io/
+[Weather Icons](https://www.flaticon.com/free-icons/weather)
+</br>
+[Weather Icons](https://www.flaticon.com/free-icons/rain)
+</br>
+[Gradient](https://cssgradient.io/)
 
 ## Your Task
 

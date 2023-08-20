@@ -1,28 +1,96 @@
+const apiKey = '2d73b59ce32c945517928d1f69d80c8d'
+const geoLocat = '';
+const apiCurrent = 'https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}units_metric';
+const apiFuture = 'https://api.openweathermap.org/data/2.5/forecast?lat={latitude}&lon={lonitude}&appid={apiKey}&units=metric';
+const icon = document.querySelector('.icons');
+const currentDay = dayjs().format("dddd, MMMM D, YYYY h:mm A");
+
+// get from local storage
+const forecast = JSON.parse(localStorage.getItem("city"));
+
+//save to local storage
+localStorage.setItem('citiesSearched', JSON.stringify(forcast));
+
+// local storage clear 
+localStorage.clear();
+
+//search new city get currrent and future weather
+// shows today forcast with date,weather icon, temp, wind speed, humidity
+function Weather(latitude, longitude) {
+    
+// current day
+function currentDay() {
+    //current day for loop, plus next 5 days
+    for (let i = 0; i < nextDays.list.length; i += 5) {
+        const searchedCity = {
+                cityName: data.city,
+                tempurature: data.tempurature,
+                humidity: data.humidity,
+                weatherIcon: data.icon,
+                windSpeed: data.windSpeed,
+                date: data.currentDay
+            };//fetch current weather
+            function retrieveWeather(data) {
+            try {
+                    fetch(apiCurrent + searchedCity)
+                    .then((response) => response.json(data))
+                    .then((data)(), {currentDay})
+                }
+                 catch (error) {
+                    { console.log('error no forecast data', err)}}
+                 }}
+    }
+
+                    //five day
+    function fiveDay (data) {
+    //current day for loop, plus next 5 days
+    for (let i = 0; i < nextDays.list.length; i += 5) {
+        const searchedCity = {
+            cityName: data.cityName,
+                tempurature: data.tempurature,
+                humidity: data.humidity,
+                weatherIcon: data.icon,
+                windSpeed: data.windSpeed,
+                date: data.fiveDay
+            };
+            //fetch forecast weather
+            
+            function showForecastWeather() {
+                fetch(apiFuture + searchedCity)
+                .then((responce) => responce.json(data))
+                .then((data)(), {fiveDay});
+            }}
+            return currentDay();
+            return fiveDay();
+        }};
+
+        //call current and five day functions 
+        Weather();
 
 
-//   https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
 
-//Using the 5 Day Weather Forecast API, you'll notice that you will need to pass in coordinates 
-// instead of just a city name. Using the OpenWeatherMap APIs, how could we retrieve geographical 
-// coordinates given a city name?
+//show weather for searched city and display
+addEventListener('load', () => {
+    try { 
+        const city = ''
+        retrieveWeather(city)
+        return citySearch(city)
+    }
+    catch (err) 
+    { console.log('error no forecast data', err)};
+});
 
 
-// search by city, presented with current and future weather
-// view current weather city name, date, icon of weather, temp, humidity, and wind speed 
-// view future weather, have 5 day forcast date, weather icon, temp, wind speed, humidity
-// when new city is searched
-//presented with current and future conditions
 
-//5 day unordered list
-// <ul id="myUL">
-//   <li><a href="#">Adele</a></li>
-//   <li><a href="#">Agnes</a></li>
 
-//   <li><a href="#">Billy</a></li>
-//   <li><a href="#">Bob</a></li>
-
-//   <li><a href="#">Calvin</a></li>
-//   <li><a href="#">Christina</a></li>
-//   <li><a href="#">Cindy</a></li>
+// //5 day unordered list
+// innerText.html = 
+// `
+// <div id='fiveDay' class='height: 200px; width: 200px; row'>
+// <ul>
+//     <li>${data.dayLoop}</li>
 // </ul>
+// </div>
+// `
+// };
