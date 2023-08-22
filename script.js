@@ -77,20 +77,20 @@ function forecastWeather(lat, lon) {
       for(let i = 4; i < data.list.length; i = i + 8){
         console.log(data.list[i])
 
-        const fiveD = document.createElement('h4');
-        fiveD.textContent = `${list[i]('5-Day Forecast:')}`;
-        const cityName = document.createElement('p');
-        cityName.textContent = `${list[i].cityInput.value}`;
-        const date = document.createElement('p');
-        date.textContent = `Temp: ${list[i].currentDay + 1}`;
+        // const fiveD = document.createElement('h4');
+        // fiveD.textContent = `${list[i]('5-Day Forecast:')}`;
+        // const cityName = document.createElement('p');
+        // cityName.textContent = `${list[i].cityInput.value}`;
+        // const date = document.createElement('p');
+        // date.textContent = `Temp: ${list[i].currentDay + 1}`;
         const temp = document.createElement('p');
         temp.textContent = `Temp: ${data.list[i].main.temp}`;
-        const feelsLike = document.createElement('p');
-        feelsLike.textContent = `Temp: ${data.list[i].main.feels_like}`;
-        const humidity = document.createElement('p');
-        humidity.textContent = `Humidity: ${data.list[i].main.humidity} `;
-        const wind = document.createElement('p');
-        wind.textContent = `Wind Speed: ${data.list[i].main.speed} `;
+        // const feelsLike = document.createElement('p');
+        // feelsLike.textContent = `Temp: ${data.list[i].main.feels_like}`;
+        // const humidity = document.createElement('p');
+        // humidity.textContent = `Humidity: ${data.list[i].main.humidity} `;
+        // const wind = document.createElement('p');
+        // wind.textContent = `Wind Speed: ${data.list[i].main.speed} `;
 
 
         fiveCard.append(cityName, date, temp, feelsLike, humidity, wind, icon);

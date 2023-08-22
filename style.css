@@ -19,10 +19,6 @@ header {
     text-align: left;
 }
 
-/* #previousSearch {
-    font-size: 14px;
-    text-align: left;
-} */
 
 .searchBtn {
     background-color: rgb(15,22,44);
@@ -33,13 +29,16 @@ header {
     align-content:end;
 }
 
-.cityCard {
+.currentWeather {
+    text-transform: capitalize;
     width: 600px;
     height: 350px;
     border: 3px solid black;
 }
 
-.fiveCard {
+.forecast {
+    margin-top: 400px;
+    text-transform: capitalize;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -47,3 +46,9 @@ header {
     height: 300px;
     border: 3px solid black;
 }
+
+
+/* #previousSearch {
+    font-size: 14px;
+    text-align: left;
+} */
