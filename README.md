@@ -29,8 +29,6 @@ The following image shows the web application's appearance and functionality:
 ## Credit
 [Weather Icons](https://www.flaticon.com/free-icons/weather)
 </br>
-[Weather Icons](https://www.flaticon.com/free-icons/rain)
-</br>
 [Gradient](https://cssgradient.io/)
 
 ## Your Task

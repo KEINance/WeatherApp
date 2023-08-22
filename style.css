@@ -6,6 +6,7 @@ html {
 }
 
 header {
+    margin: 0px auto;
     background: rgb(15,22,44);
     background: linear-gradient(117deg, rgba(15,22,44,1) 18%, rgba(105,66,147,1) 73%, rgba(3,5,19,1) 100%);
     color: white;
@@ -57,3 +58,8 @@ header {
     font-size: 14px;
 }
 
+.currentCard {
+    width: 300px;
+    height: 200px;
+    border: 2px solid black;
+}
