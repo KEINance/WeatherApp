@@ -27,8 +27,8 @@ async function geoData(cityName) {
 // geoData('New York'); //test for pulling lat lon
 
 // next days not defined from current day function
-function currentWeather(lat, lon) {
-  fetch(
+async function currentWeather(lat, lon) {
+ await fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
   )
     .then((responce) => responce.json())
@@ -45,18 +45,23 @@ function currentWeather(lat, lon) {
 
       const cityName = document.createElement('h3');
       cityName.textContent = cityInput.value;
+      const date = document.createElement('h4');
+      date.textContent = `Temp: ${currentDay}`;
       const temp = document.createElement('h4');
       temp.textContent = `Temp: ${data.main.temp}`;
+      const feelsLike = document.createElement('h4');
+      feelsLike.textContent = `Temp: ${data.main.feels_like}`;
       const humidity = document.createElement('h4');
       humidity.textContent = `Humidity: ${data.main.humidity} `;
-      const humidity = document.createElement('h4');
-      humidity.textContent = `Humidity: ${data.main.humidity} `;
+      const wind = document.createElement('h4');
+      wind.textContent = `Wind Speed: ${data.main.speed} `;
+
 
 
       const icon = document.createElement('img')
       icon.setAttribute('src', `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`)
 
-      cityCard.append(cityName, temp, humidity, icon)
+      cityCard.append(cityName, date, temp, feelsLike, humidity, wind, icon)
         document.querySelector('.currentWeather').append(cityCard);
     });
 }
@@ -71,15 +76,25 @@ function forecastWeather(lat, lon) {
 
       for(let i = 4; i < data.list.length; i = i + 8){
         console.log(data.list[i])
-        const temp = document.createElement("p")
-        temp.textContent = `Temp: ${data.list[i].main.temp}`
+
+        const fiveD = document.createElement('h4');
+        fiveD.textContent = `${list[i]('5-Day Forecast:')}`;
+        const cityName = document.createElement('p');
+        cityName.textContent = `${list[i].cityInput.value}`;
+        const date = document.createElement('p');
+        date.textContent = `Temp: ${list[i].currentDay + 1}`;
+        const temp = document.createElement('p');
+        temp.textContent = `Temp: ${data.list[i].main.temp}`;
+        const feelsLike = document.createElement('p');
+        feelsLike.textContent = `Temp: ${data.list[i].main.feels_like}`;
+        const humidity = document.createElement('p');
+        humidity.textContent = `Humidity: ${data.list[i].main.humidity} `;
+        const wind = document.createElement('p');
+        wind.textContent = `Wind Speed: ${data.list[i].main.speed} `;
 
 
-
-
-
-
-        document.querySelector(".forecast").appendChild(temp)
+        fiveCard.append(cityName, date, temp, feelsLike, humidity, wind, icon);
+        document.querySelector(".forecast").appendChild(fiveCard);
       }
     });
 }
@@ -108,75 +123,3 @@ addEventListener("click", () => {
   }
 });
 
-//search new city get currrent and future weather
-// shows today forcast with date,weather icon, temp, wind speed, humidity
-// function Weather(latitude, longitude) {
-//   // current day
-//   function currentDay(data) {
-//     //current day for loop, plus next 5 days
-//     for (let i = 0; i < nextDays.list.length; i += 5) { // next days not defined from current day function
-//       const searchedCity = {
-//         cityName: data.city,
-//         tempurature: data.temperature,
-//         humidity: data.humidity,
-//         weatherIcon: data.icon,
-//         windSpeed: data.windSpeed,
-//         date: data.currentDay,
-//       }; //fetch current weather
-
-//       console.log(searchedCity)
-
-//       function retrieveWeather(searchedCity) {
-//         try {
-//           fetch(apiCurrent + searchedCity.cityName)
-//             .then((response) => response.json())
-//             .then(weatherData);
-//         } catch (error) {
-//           {
-//             console.log("Error no forecast data!", err);
-//           }
-//         }
-//       }
-//       return retrieveWeather();
-//     }
-//   };
-//   return currentDay();
-
-//   //five day
-//   function fiveDay(data) {
-//     //current day for loop, plus next 5 days
-//     for (let i = 0; i < nextDays.list.length; i += 5) {
-//       const searchedCity = {
-//         cityName: data.cityName,
-//         tempurature: data.temperature,
-//         humidity: data.humidity,
-//         weatherIcon: data.icon,
-//         windSpeed: data.windSpeed,
-//         date: data.fiveDay,
-//       };
-//       //fetch forecast weather
-
-//       function showForecastWeather() {
-//         fetch(apiFuture + searchedCity.cityName)
-//           .then((responce) => responce.json(data))
-//           .then(weatherData);
-//       }
-//       return showForecastWeather();
-//     }
-// };
-// return fiveDay();
-// }
-
-//call current and five day functions
-// Weather();
-
-// //5 day unordered list
-// innerText.html =
-// `
-// <div id='fiveDay' class='height: 200px; width: 200px; row'>
-// <ul>
-//     <li>${data.dayLoop}</li>
-// </ul>
-// </div>
-// `
-// };

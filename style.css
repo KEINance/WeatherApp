@@ -1,12 +1,9 @@
 html {
     font-family: 'Kanit', 'Courier New', "Courier", "monospace";
     color: black;
-    display: flex;
-    flex: wrap;
 }
 
 header {
-    margin: 0px auto;
     background: rgb(15,22,44);
     background: linear-gradient(117deg, rgba(15,22,44,1) 18%, rgba(105,66,147,1) 73%, rgba(3,5,19,1) 100%);
     color: white;
@@ -22,44 +19,31 @@ header {
     text-align: left;
 }
 
-#previousSearch {
+/* #previousSearch {
     font-size: 14px;
     text-align: left;
-}
+} */
 
 .searchBtn {
     background-color: rgb(15,22,44);
     background-color: linear-gradient(117deg, rgba(15,22,44,0.9613095238095238) 45%, rgba(105,66,147,1) 100%, rgba(46,52,95,1) 100%);
 }
 
-#lastSearched {
-    text-align: left;
+#container {
+    align-content:end;
 }
 
-.currentDay {
-    border: 2px black;
-    align-items: auto;
+.cityCard {
+    width: 600px;
+    height: 350px;
+    border: 3px solid black;
 }
 
-.city {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.fiveday {
-    border: 2px black;
-    font-size: 10px;
-    font-weight: bold;
-}
-
-.forecast {
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.currentCard {
-    width: 300px;
-    height: 200px;
-    border: 2px solid black;
+.fiveCard {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 200px;
+    height: 300px;
+    border: 3px solid black;
 }
