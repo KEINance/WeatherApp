@@ -91,6 +91,12 @@ function forecastWeather(lat, lon) {
         const wind = document.createElement("p");
         wind.textContent = `Wind Speed: ${data.list[i].wind.speed} `;
 
+        const icon = document.createElement("img");
+        icon.setAttribute(
+          "src",
+          `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+        );
+
         cityCard.append(cityName, icon, date, temp, feelsLike, humidity, wind);
         document.querySelector(".forecast").appendChild(cityCard);
       }
