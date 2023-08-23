@@ -43,15 +43,15 @@ async function currentWeather(lat, lon) {
 
       const cityName = document.createElement("h1");
       cityName.textContent = cityInput.value;
-      const date = document.createElement("h4");
+      const date = document.createElement("h6");
       date.textContent = `Temp: ${currentDay}`;
-      const temp = document.createElement("h4");
+      const temp = document.createElement("h6");
       temp.textContent = `Temp: ${data.main.temp}`;
-      const feelsLike = document.createElement("h4");
+      const feelsLike = document.createElement("h6");
       feelsLike.textContent = `Temp: ${data.main.feels_like}`;
-      const humidity = document.createElement("h4");
+      const humidity = document.createElement("h6");
       humidity.textContent = `Humidity: ${data.main.humidity} `;
-      const wind = document.createElement("h4");
+      const wind = document.createElement("h6");
       wind.textContent = `Wind Speed: ${data.wind.speed} `;
 
       const icon = document.createElement("img");
@@ -118,18 +118,18 @@ function retrieveWeather(data) {
 }
 
 //keydown event to log previously searched
-input.addEventListener("keydown", logInput);
+// input.addEventListener("keydown", logInput);
 
-function logInput(e) {
-  const cityCard = document.createElement("div");
-  cityCard.setAttribute("class", "currentCard");
-  const input = document.querySelectorById("cityInput");
-  const log = document.getElement("searchCity");
-  log.textContent += ` ${e.code}`;
+// function logInput(e) {
+//   const cityCard = document.createElement("p");
+//   cityCard.setAttribute("class", "currentCard");
+//   const input = document.querySelectorById("cityInput");
+//   const log = document.getElement("previous-search");
+//   log.textContent += ` ${e.code}`;
 
-  cityCard.append(e.code);
-  document.querySelector(".previous-search").appendChild(e.code);
-}
+//   cityCard.append(e.code);
+//   document.querySelector(".previous-search").appendChild(e.code);
+// }
 
 
 //show weather for searched city and display
