@@ -18,9 +18,17 @@
         <header>
             <h1>Checker of Weather</h1>
         </header>
-        <h2 class="searchCity">Search For City: <input type='text' id='cityInput'></h2>
-        <button id="search-btn">Search</button>
     </center>
+    <div id="containerSearch" style="float:left;">
+    <div>
+    <h2 class="searchCity">Search For City:</h2>
+    <input type='text' id='cityInput' class="rounded" onkeydown="myFunction()"/>
+    </br>
+    <button class="searchBtn">Search</button>
+    <p class="previous-search"></p>
+    </div>
+    </div>
+
     <div id="container" style="float:right;">
         <div class="currentWeather">
             <!-- shows current day in searched city -->
@@ -36,13 +44,6 @@
 
 
 
-    <!-- <form id="previousSearch">
-        <div class="search">
-            <button class="searchbtn rounded">Search</button>
-            <input type="text" id="myInput" class="rounded" onkeydown="myFunction()" placeholder="City search ...">
-
-        </div>
-    </form> -->
 
 
 

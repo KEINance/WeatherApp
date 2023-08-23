@@ -13,43 +13,51 @@ header {
     padding: 20px;
 }
 
+#containerSearch {
+    justify-content: space-around;
+    width: 450px;
+    height: 1000px;
+}
+
 .searchCity {
-    font-size: 22px;
+    font-size: 40px;
     font-weight: bold;
     text-align: left;
 }
 
-
-.searchBtn {
-    background-color: rgb(15,22,44);
-    background-color: linear-gradient(117deg, rgba(15,22,44,0.9613095238095238) 45%, rgba(105,66,147,1) 100%, rgba(46,52,95,1) 100%);
+#cityInput {
+    border-radius: 20px;
+    width: 100%;
 }
 
-#container {
-    align-content:end;
+.search-btn {
+    border-radius: 20px;
+    color: white;
+    background: linear-gradient(117deg, rgba(15,22,44,0.9613095238095238) 45%, rgba(105,66,147,1) 100%, rgba(46,52,95,1) 100%);
+    width:100%;
+    display:block;
 }
 
 .currentWeather {
+    margin-top: 30px;
+    margin-right: 100px;
+    border-radius: 20px;
     background-color: rgb(209, 180, 236);
     text-transform: capitalize;
     width: 750px;
     height: 350px;
-    border: 3px solid black;
 }
 
 .forecast {
+    margin-right: 100px;
+    border-radius: 20px;
     margin-top: 400px;
     text-transform: capitalize;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     flex-direction: row;
-    width: 200px;
-    height: 300px;
-    border: 3px solid black;
+    width: 250px;
+    height: 400px;
+
 }
-
-
-/* #previousSearch {
-    font-size: 14px;
-    text-align: left;
-} */

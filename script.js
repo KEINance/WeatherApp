@@ -72,6 +72,8 @@ function forecastWeather(lat, lon) {
     .then((responce) => responce.json())
     .then((data) => {
       console.log(data);
+      const cityCard = document.createElement("div");
+      cityCard.setAttribute("class", "currentCard");
       //make a 24 call for the next five days
       for (let i = 4; i < data.list.length; i = i + 8) {
         console.log(data.list[i]);
@@ -94,7 +96,7 @@ function forecastWeather(lat, lon) {
         const icon = document.createElement("img");
         icon.setAttribute(
           "src",
-          `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+          `https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png`
         );
 
         cityCard.append(cityName, icon, date, temp, feelsLike, humidity, wind);
@@ -113,7 +115,22 @@ function retrieveWeather(data) {
       console.log("Error no forecast data!", err);
     }
   }
-};
+}
+
+//keydown event to log previously searched
+input.addEventListener("keydown", logInput);
+
+function logInput(e) {
+  const cityCard = document.createElement("div");
+  cityCard.setAttribute("class", "currentCard");
+  const input = document.querySelectorById("cityInput");
+  const log = document.getElement("searchCity");
+  log.textContent += ` ${e.code}`;
+
+  cityCard.append(e.code);
+  document.querySelector(".previous-search").appendChild(e.code);
+}
+
 
 //show weather for searched city and display
 addEventListener("click", () => {
@@ -124,4 +141,4 @@ addEventListener("click", () => {
   } catch (err) {
     console.log("error no forecast data", err);
   }
-})
+});
