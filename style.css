@@ -79,13 +79,13 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-radius: 20px;
+    border-radius: 15px;
     text-transform: capitalize;   
 }
 
 .currentCard {
     margin-top: 15px;
-    border-radius: 20px;
+    border-radius: 15px;
     text-transform: capitalize;
     background-color: rgb(139, 124, 154);
     border: 1px solid rgb(83, 63, 92);

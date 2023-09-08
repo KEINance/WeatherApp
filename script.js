@@ -87,8 +87,9 @@ function forecastWeather(lat, lon) {
     .then((responce) => responce.json())
     .then((data) => {
       console.log(data);
-      let forcast = document.querySelector(".forcast");
-      forcast.innerHTML = '';
+      let forecast = document.querySelector(".forecast");
+      forecast.innerHTML = '';
+      
       //make a 24 call for the next five days
       for (let i = 4; i < data.list.length; i = i + 8) {
         console.log(data.list[i]);
