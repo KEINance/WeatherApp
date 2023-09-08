@@ -32,6 +32,11 @@ header {
     text-align: left;
 }
 
+#searchHistory {
+    text-transform: capitalize;
+    list-style-type: none;
+    text-align: center;
+}
 .previous-search {
     color: black;
     font-size: 15px;

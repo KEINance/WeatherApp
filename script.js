@@ -17,7 +17,13 @@ function saveSearches() {
 localStorage.clear();
 
 searchBtn.addEventListener("click", function () {
+  const node = document.createElement("li");
+  const textnode = document.createTextNode(cityInput.value);
+  node.appendChild(textnode);
+  document.getElementById("searchHistory").appendChild(node);
+
   geoData(cityInput.value);
+
 });
 
 // collects lat and lon
