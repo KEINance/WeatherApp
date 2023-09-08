@@ -1,6 +1,6 @@
-* {
+/* *{
     border: 1px solid black;
-}
+} */
 
 html {
     font-family: 'Kanit', 'Courier New', "Courier", "monospace";
@@ -36,12 +36,20 @@ header {
     text-transform: capitalize;
     list-style-type: none;
     text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
 }
 .previous-search {
-    color: black;
+    color: white;
+    border-radius: 20px;
+    background-color: rgb(139, 124, 154);;
     font-size: 15px;
     font-weight: bold;
     text-align: left;
+    display:flex;
+    flex-direction: column;
+    border: 1px solid rgb(83, 63, 92);
 }
 
 #cityInput {
@@ -60,26 +68,29 @@ header {
 
 
 #container {
-    margin-top: 30px;
+    text-align: justify; 
+    margin-right: 50px; 
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
 }
 
 .forecast {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     border-radius: 20px;
     text-transform: capitalize;   
     background-color: rgb(139, 124, 154);
-    text-transform: capitalize;
     margin-top: 30px; 
-    margin-right: 900px;
-
 }
 
 .currentCard {
-    text-align: left;
+    margin-top: 30px;
+    border-radius: 20px;
+    /* width: 50%; */
     text-transform: capitalize;
     background-color: rgb(139, 124, 154);
     border: 1px solid rgb(83, 63, 92);
-    /* margin-right: 700px; */
 }
 
