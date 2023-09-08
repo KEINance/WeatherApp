@@ -46,6 +46,9 @@ async function currentWeather(lat, lon) {
     .then((responce) => responce.json())
     .then((data) => {
       console.log(data);
+      let current = document.querySelector('.currentWeather');
+      current.innerHTML = '';
+
       const cityCard = document.createElement("div");
       cityCard.setAttribute("class", "currentCard");
 
@@ -84,6 +87,8 @@ function forecastWeather(lat, lon) {
     .then((responce) => responce.json())
     .then((data) => {
       console.log(data);
+      let forcast = document.querySelector(".forcast");
+      forcast.innerHTML = '';
       //make a 24 call for the next five days
       for (let i = 4; i < data.list.length; i = i + 8) {
         console.log(data.list[i]);
