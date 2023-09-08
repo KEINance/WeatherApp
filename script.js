@@ -72,13 +72,8 @@ async function currentWeather(lat, lon) {
         `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
       );
 
-    if (cityInput === cityName) { 
       cityCard.append(cityName, icon, date, temp, feelsLike, humidity, wind);
-      document.querySelector(".currentWeather").append(cityCard)
-    } else {
-      cityCard.update(cityName, icon, date, temp, feelsLike, humidity, wind);
-      document.querySelector(".currentWeather").update(cityCard)
-    }
+      document.querySelector(".currentWeather").append(cityCard);
     });
 }
 //fetch five days
