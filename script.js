@@ -4,16 +4,22 @@ const icon = document.querySelector(".icons");
 const currentDay = new Date();
 const searchBtn = document.getElementById("search-btn");
 const cityInput = document.getElementById("cityInput");
+const searchHistory = document.getElementById('searchHistory');
 // get from local storage
 const forecast = JSON.parse(localStorage.getItem("city"));
 //save to local storage
 localStorage.setItem("citiesSearched", JSON.stringify(forecast));
+//search history 
+function saveSearches() {
+  localStorage.setItem('history', json.stringify(searchHistory))
+}
 // local storage clear
 localStorage.clear();
 
 searchBtn.addEventListener("click", function () {
   geoData(cityInput.value);
 });
+
 // collects lat and lon
 async function geoData(cityName) {
   console.log(cityName);
@@ -72,12 +78,12 @@ function forecastWeather(lat, lon) {
     .then((responce) => responce.json())
     .then((data) => {
       console.log(data);
-      const cityCard = document.createElement("div");
-      cityCard.setAttribute("class", "currentCard");
       //make a 24 call for the next five days
       for (let i = 4; i < data.list.length; i = i + 8) {
         console.log(data.list[i]);
-
+        
+        const cityCard = document.createElement("div");
+        cityCard.setAttribute("class", "currentCard");
         const fiveD = document.createElement("h4");
         fiveD.textContent = `'5-Day Forecast:'`;
         const cityName = document.createElement("p");
@@ -115,22 +121,23 @@ function retrieveWeather(data) {
       console.log("Error no forecast data!", err);
     }
   }
+};
+//save searches in history
+function createSaveSearches() {
+  const historyBtn = searchHistory;
+  searchHistory.append(historyBtn)
 }
 
-//keydown event to log previously searched
-// input.addEventListener("keydown", logInput);
+// previously searched
+function previouslySearched() {
+  const searchedCities = json.parse(localStorage.getItem('city'));
 
-// function logInput(e) {
-//   const cityCard = document.createElement("p");
-//   cityCard.setAttribute("class", "currentCard");
-//   const input = document.querySelectorById("cityInput");
-//   const log = document.getElement("previous-search");
-//   log.textContent += ` ${e.code}`;
-
-//   cityCard.append(e.code);
-//   document.querySelector(".previous-search").appendChild(e.code);
-// }
-
+  if(searchedCities.searchedCity.includes(city)) {
+    searchedCities.searchedCity.push(city);
+    saveSearches();
+    createSaveSearches(city);
+  }
+}
 
 //show weather for searched city and display
 addEventListener("click", () => {
