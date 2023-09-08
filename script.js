@@ -124,12 +124,14 @@ function retrieveWeather(data) {
 };
 //save searches in history
 function createSaveSearches() {
+  console.log('check err')
   const historyBtn = searchHistory;
   searchHistory.append(historyBtn)
 }
 
 // previously searched
 function previouslySearched() {
+  console.log('preious search err')
   const searchedCities = json.parse(localStorage.getItem('city'));
 
   if(searchedCities.searchedCity.includes(city)) {
