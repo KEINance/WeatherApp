@@ -72,8 +72,13 @@ async function currentWeather(lat, lon) {
         `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
       );
 
+    if (cityInput === cityName) { 
       cityCard.append(cityName, icon, date, temp, feelsLike, humidity, wind);
-      document.querySelector(".currentWeather").append(cityCard);
+      document.querySelector(".currentWeather").append(cityCard)
+    } else {
+      cityCard.update(cityName, icon, date, temp, feelsLike, humidity, wind);
+      document.querySelector(".currentWeather").update(cityCard)
+    }
     });
 }
 //fetch five days
@@ -127,6 +132,7 @@ function retrieveWeather(data) {
       console.log("Error no forecast data!", err);
     }
   }
+  set.clear();
 };
 //save searches in history
 function createSaveSearches() {
@@ -156,4 +162,5 @@ addEventListener("click", () => {
   } catch (err) {
     console.log("error no forecast data", err);
   }
+
 });
