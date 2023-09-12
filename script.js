@@ -29,7 +29,7 @@ searchBtn.addEventListener("click", function () {
 // collects lat and lon
 async function geoData(cityName) {
   console.log(cityName);
-  const geoLocat = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`;
+  const geoLocat = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`;
   const responce = await fetch(geoLocat);
   const data = await responce.json();
   console.log(data);
