@@ -145,12 +145,12 @@ function createSaveSearches() {
 
 // previously searched
 function previouslySearched(city) {
-  const searchedCities = JSON.parse(localStorage.getItem('city'));
+  const searchedCities = JSON.parse(localStorage.getItem('citiesSearched'));
   
   if(searchedCities && searchedCities.includes(city)) {
     // geoData()
     console.log('previous search err')
-    searchedCities.searchedCity.push(city);
+    searchedCities.push(city);
     saveSearches();
     createSaveSearches(city);
   }
@@ -172,6 +172,9 @@ addEventListener("click", () => {
 });
 
 //show previous city
-searchHistory.addEventListener('click', () => {
+searchHistory.addEventListener('click', (event) => {
+  const pickedCity = event.target.textContet;
+  if (pickedCity){
   previouslySearched(cityInput.value);
+}
 })
