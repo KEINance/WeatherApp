@@ -5,6 +5,7 @@ const currentDay = new Date();
 const searchBtn = document.getElementById("search-btn");
 const cityInput = document.getElementById("cityInput");
 const searchHistory = document.getElementById('searchHistory');
+
 // get from local storage
 const forecast = JSON.parse(localStorage.getItem("city"));
 //save to local storage
@@ -143,14 +144,18 @@ function createSaveSearches() {
 }
 
 // previously searched
-function previouslySearched() {
-  console.log('preious search err')
-  const searchedCities = json.parse(localStorage.getItem('city'));
-
-  if(searchedCities.searchedCity.includes(city)) {
+function previouslySearched(city) {
+  const searchedCities = JSON.parse(localStorage.getItem('city'));
+  
+  if(searchedCities && searchedCities.includes(city)) {
+    // geoData()
+    console.log('previous search err')
     searchedCities.searchedCity.push(city);
     saveSearches();
     createSaveSearches(city);
+  }
+  else {
+    console.log("Error no forecast data!");
   }
 }
 
@@ -165,3 +170,8 @@ addEventListener("click", () => {
   }
 
 });
+
+//show previous city
+searchHistory.addEventListener('click', () => {
+  previouslySearched(cityInput.value);
+})
