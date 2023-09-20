@@ -4,18 +4,18 @@ const icon = document.querySelector(".icons");
 const currentDay = new Date();
 const searchBtn = document.getElementById("search-btn");
 const cityInput = document.getElementById("cityInput");
-const searchHistory = document.getElementById('searchHistory');
+const searchHistory = document.getElementById("searchHistory");
 
 // get from local storage
 const forecast = JSON.parse(localStorage.getItem("city"));
 //save to local storage
 localStorage.setItem("citiesSearched", JSON.stringify(forecast));
-//search history 
+//search history
 function saveSearches() {
-  localStorage.setItem('history', json.stringify(searchHistory))
+  localStorage.setItem("history", JSON.stringify(searchHistory));
 }
 // local storage clear
-localStorage.clear();
+// localStorage.clear();
 
 searchBtn.addEventListener("click", function () {
   const node = document.createElement("li");
@@ -24,12 +24,12 @@ searchBtn.addEventListener("click", function () {
   document.getElementById("searchHistory").appendChild(node);
 
   geoData(cityInput.value);
-
+  // previouslySearched(cityInput.value);
 });
 
 // collects lat and lon
 async function geoData(cityName) {
-  console.log(cityName);
+  // console.log(cityName);
   const geoLocat = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKey}`;
   const responce = await fetch(geoLocat);
   const data = await responce.json();
@@ -47,8 +47,8 @@ async function currentWeather(lat, lon) {
     .then((responce) => responce.json())
     .then((data) => {
       console.log(data);
-      let current = document.querySelector('.currentWeather');
-      current.innerHTML = '';
+      let current = document.querySelector(".currentWeather");
+      current.innerHTML = "";
 
       const cityCard = document.createElement("div");
       cityCard.setAttribute("class", "currentCard");
@@ -89,12 +89,12 @@ function forecastWeather(lat, lon) {
     .then((data) => {
       console.log(data);
       let forecast = document.querySelector(".forecast");
-      forecast.innerHTML = '';
-      
+      forecast.innerHTML = "";
+
       //make a 24 call for the next five days
       for (let i = 4; i < data.list.length; i = i + 8) {
         console.log(data.list[i]);
-        
+
         const cityCard = document.createElement("div");
         cityCard.setAttribute("class", "currentCard");
         const fiveD = document.createElement("h4");
@@ -134,47 +134,67 @@ function retrieveWeather(data) {
       console.log("Error no forecast data!", error);
     }
   }
-  set.clear();
-};
+  // set.clear();
+}
 //save searches in history
 function createSaveSearches() {
-  console.log('check err')
+  console.log("check err");
   const historyBtn = searchHistory;
-  searchHistory.append(historyBtn)
+  searchHistory.append(historyBtn);
+}
+
+function saved() {
+  localStorage.setItem("citiesSearched", JSON.stringify(searchedCities));
+}
+
+//add to history 
+function addHistory(cityName) {
+  searchedCities.push(cityName);
+  saveSearches();
+
+  const info = document.createElement('li');
+  info.textContent = cityName;
+  searchHistory.appendChild(info);
+
+  info.addEventListener('click', () => {
+    geoData(cityName);
+  })
 }
 
 // previously searched
-function previouslySearched(city) {
-  const searchedCities = JSON.parse(localStorage.getItem('citiesSearched'));
-  
-  if(searchedCities && searchedCities.includes(city)) {
-    // geoData()
-    console.log('previous search err')
-    searchedCities.push(city);
-    saveSearches();
-    createSaveSearches(city);
-  }
-  else {
-    console.log("Error no forecast data!");
-  }
-}
+// function previouslySearched(cityName) {
+//   // console.log()
+//   console.log(cityName);
+//   const searchedCities = JSON.parse(localStorage.getItem("citiesSearched")) || [];
+
+
+//   for (let i = 0; i < searchedCities.length; i++) {
+//     textContent = searchHistory[i];
+//   }
+
+//   console.log("previous search err");
+//   searchedCities.push(cityName);
+//   localStorage.setItem("citiesSearched", JSON.stringify(searchedCities));
+
+//   console.log("Error no forecast data!");
+// }
 
 //show weather for searched city and display
 addEventListener("click", () => {
   try {
     const city = "";
     retrieveWeather(city);
-    return citySearch(city);
+    return searchedCity(city);
   } catch (err) {
     console.log("error no forecast data", err);
   }
-
 });
 
 //show previous city
-searchHistory.addEventListener('click', (event) => {
-  const pickedCity = event.target.textContet;
-  if (pickedCity){
-  previouslySearched(cityInput.value);
-}
-})
+searchHistory.addEventListener("click", () => {
+  const pickedCity = cityInput.value;
+  if (pickedCity) {
+    geoData(cityName);
+    addHistory(cityName);
+  }
+});
