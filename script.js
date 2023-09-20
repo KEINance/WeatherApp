@@ -131,7 +131,7 @@ function retrieveWeather(data) {
       .then(data);
   } catch (error) {
     {
-      console.log("Error no forecast data!", err);
+      console.log("Error no forecast data!", error);
     }
   }
   set.clear();
