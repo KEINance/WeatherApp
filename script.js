@@ -149,6 +149,7 @@ function saved() {
 
 //add to history 
 function addHistory(cityName) {
+  var searchedCities = JSON.parse(localStorage.getItem("citiesSearched")) || []
   searchedCities.push(cityName);
   saveSearches();
 
@@ -192,8 +193,8 @@ addEventListener("click", () => {
 
 //show previous city
 searchHistory.addEventListener("click", () => {
-  const pickedCity = cityInput.value;
-  if (pickedCity) {
+  const cityName = cityInput.value;
+  if (cityName) {
     geoData(cityName);
     addHistory(cityName);
   }
